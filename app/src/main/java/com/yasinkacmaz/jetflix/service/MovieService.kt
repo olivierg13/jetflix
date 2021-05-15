@@ -13,8 +13,14 @@ import retrofit2.http.QueryMap
 interface MovieService {
     @GET("discover/movie")
     suspend fun fetchMovies(
-        @Query("with_genres") genreId: Int?,
         @Query("page") pageNumber: Int,
+        @QueryMap options: Map<String, String>
+    ): MoviesResponse
+
+    @GET("search/movie")
+    suspend fun searchMovies(
+        @Query("page") pageNumber: Int,
+        @Query("query") searchQuery: String,
         @QueryMap options: Map<String, String>
     ): MoviesResponse
 

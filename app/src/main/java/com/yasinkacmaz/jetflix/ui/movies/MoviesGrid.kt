@@ -35,13 +35,20 @@ import kotlinx.coroutines.flow.onEach
 fun MoviesGrid(moviesViewModel: MoviesViewModel) {
     val movies = moviesViewModel.movies.collectAsLazyPagingItems()
     val state = rememberLazyListState()
-    val filterStateChanges = moviesViewModel.filterStateChanges
-    filterStateChanges
+    moviesViewModel.filterStateChanges
         .onEach {
             state.scrollToItem(0)
             movies.refresh()
         }
         .launchIn(rememberCoroutineScope())
+
+    moviesViewModel.searchQueryChanges
+        .onEach {
+            state.scrollToItem(0)
+            movies.refresh()
+        }
+        .launchIn(rememberCoroutineScope())
+
     LazyMoviesGrid(movies, state)
 }
 
