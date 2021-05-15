@@ -55,4 +55,8 @@ class MoviesViewModel @Inject constructor(
         filterState,
         genreId
     ).also(::pagingSource::set)
+
+    fun onSearch(query: String) {
+        print(query)
+    }
 }

@@ -14,7 +14,6 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.paging.CombinedLoadStates
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
@@ -33,8 +32,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
 @Composable
-fun MoviesGrid() {
-    val moviesViewModel = viewModel<MoviesViewModel>()
+fun MoviesGrid(moviesViewModel: MoviesViewModel) {
     val movies = moviesViewModel.movies.collectAsLazyPagingItems()
     val state = rememberLazyListState()
     val filterStateChanges = moviesViewModel.filterStateChanges
