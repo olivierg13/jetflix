@@ -129,7 +129,12 @@ dependencies {
     testImplementation(Dependencies.Test.mockk)
     testImplementation(Dependencies.Test.striktAssertion)
     testImplementation(Dependencies.Test.coroutines)
+
     androidTestImplementation(Dependencies.Compose.uiTest)
     androidTestImplementation(Dependencies.Compose.uiTestJunit)
     androidTestImplementation(Dependencies.Test.junitExt)
+    androidTestImplementation("androidx.test:runner:1.4.0")
+    androidTestImplementation("androidx.test:rules:1.4.0")
+    androidTestImplementation("com.google.dagger:hilt-android-testing:2.38.1")
+    kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.41")
 }

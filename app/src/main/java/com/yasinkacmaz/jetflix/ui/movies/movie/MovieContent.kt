@@ -33,6 +33,7 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -72,6 +73,7 @@ fun MovieContent(movie: Movie, modifier: Modifier = Modifier, onMovieClicked: (I
                         .align(Alignment.BottomCenter)
                         .fillMaxWidth()
                         .background(Color(0x97000000))
+                        .testTag("MovieInfo")
                 )
             }
         }
