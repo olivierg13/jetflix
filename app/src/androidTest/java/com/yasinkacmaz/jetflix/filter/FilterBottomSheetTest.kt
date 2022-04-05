@@ -103,11 +103,9 @@ class FilterBottomSheetTest {
     private fun ComposeContentTestRule.renderFilterBottomSheet(
         filterState: FilterState,
         onFilterStateChanged: (FilterState) -> Unit = { },
-        onResetClicked: () -> Unit = { },
-        onHideClicked: () -> Unit = { }
     ) = setTestContent {
         Column(Modifier.statusBarsPadding()) {
-            FilterBottomSheetContent(filterState, onFilterStateChanged, onResetClicked, onHideClicked)
+            FilterBottomSheetContent(filterState, onFilterStateChanged)
         }
     }
 }
