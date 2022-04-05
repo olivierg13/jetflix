@@ -73,6 +73,14 @@ android {
             )
         )
     }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 kapt {
@@ -133,6 +141,7 @@ dependencies {
     androidTestImplementation(Dependencies.Compose.uiTest)
     androidTestImplementation(Dependencies.Compose.uiTestJunit)
     androidTestImplementation(Dependencies.Test.junitExt)
+    androidTestImplementation(Dependencies.Test.mockWebServer)
     androidTestImplementation("androidx.test:runner:1.4.0")
     androidTestImplementation("androidx.test:rules:1.4.0")
     androidTestImplementation("com.google.dagger:hilt-android-testing:2.38.1")

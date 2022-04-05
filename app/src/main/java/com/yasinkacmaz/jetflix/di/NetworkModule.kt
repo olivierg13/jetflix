@@ -1,6 +1,7 @@
 package com.yasinkacmaz.jetflix.di
 
 import android.content.Context
+import android.util.Log
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.yasinkacmaz.jetflix.R
 import com.yasinkacmaz.jetflix.service.ConfigurationService
@@ -19,6 +20,7 @@ import kotlinx.serialization.json.Json
 import okhttp3.Interceptor
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
+import okhttp3.Response
 import retrofit2.Retrofit
 import javax.inject.Singleton
 
@@ -49,6 +51,19 @@ object NetworkModule {
         }.build()
     }
 
+    @Provides
+    @Singleton
+    fun provideMovieService(retrofit: Retrofit) = retrofit.create(MovieService::class.java)
+
+    @Provides
+    @Singleton
+    fun provideConfigurationService(retrofit: Retrofit) = retrofit.create(ConfigurationService::class.java)
+}
+
+@Module
+@InstallIn(SingletonComponent::class)
+object RetrofitModule {
+
     @OptIn(ExperimentalSerializationApi::class)
     @Provides
     @Singleton
@@ -59,12 +74,4 @@ object NetworkModule {
             .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
             .build()
     }
-
-    @Provides
-    @Singleton
-    fun provideMovieService(retrofit: Retrofit) = retrofit.create(MovieService::class.java)
-
-    @Provides
-    @Singleton
-    fun provideConfigurationService(retrofit: Retrofit) = retrofit.create(ConfigurationService::class.java)
 }

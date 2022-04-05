@@ -1,9 +1,9 @@
 package com.yasinkacmaz.jetflix.main
 
-import androidx.compose.foundation.layout.Box
 import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.yasinkacmaz.jetflix.fake.rule.FakeWebServerRule
 import com.yasinkacmaz.jetflix.ui.main.MainActivity
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
@@ -12,16 +12,13 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.RuleChain
 import org.junit.runner.RunWith
-import java.lang.Exception
-import java.lang.Thread.sleep
 
 @RunWith(AndroidJUnit4::class)
 @HiltAndroidTest
 class MainActivityTest {
+
     var hiltTestRule = HiltAndroidRule(this)
-
     val composeTestRule = createAndroidComposeRule<MainActivity>()
-
     @get:Rule
     var uiTestRule = RuleChain.outerRule(hiltTestRule).around(composeTestRule)
 

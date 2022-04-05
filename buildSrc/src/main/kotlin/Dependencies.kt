@@ -80,5 +80,8 @@ object Dependencies {
         const val striktAssertion = "io.strikt:strikt-core:0.32.0"
         const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.2"
         const val junitExt = "androidx.test.ext:junit:1.1.3"
+
+        private const val mockWebServerVersion = "4.9.0"
+        const val mockWebServer = "com.squareup.okhttp3:mockwebserver:$mockWebServerVersion"
     }
 }
